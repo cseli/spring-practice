@@ -30,6 +30,9 @@ dependencies {
 	compile 'org.springframework.boot:spring-boot-starter'
 	compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	compile 'org.springframework.boot:spring-boot-devtools'
+
+	compile 'org.springframework:spring-aspects:3.2.4.RELEASE'
+
 	compile 'org.hibernate:hibernate-validator'
 
 	testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
