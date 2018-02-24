@@ -11,7 +11,7 @@ public class CarManager {
 		return new Car(carId, "combi", "BMW");
 	}
 
-	public Car createCar(Car car) {
-		return new Car(car.getId(), car.getType(), car.getBrand());
+	public void createCar(Car car) {
+		return;
 	}
 }

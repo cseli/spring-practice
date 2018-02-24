@@ -15,7 +15,7 @@ public class CarService {
 		return carManager.getCarById(carId);
 	}
 
-	public Car createCar(Car car) {
-		return carManager.createCar(car);
+	public void createCar(Car car) {
+		carManager.createCar(car);
 	}
 }

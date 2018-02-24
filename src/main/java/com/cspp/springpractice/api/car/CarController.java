@@ -1,5 +1,6 @@
 package com.cspp.springpractice.api.car;
 
+import static org.springframework.http.HttpStatus.ACCEPTED;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -37,16 +38,16 @@ public class CarController {
 	}
 
 	@RequestMapping(value = "/create", method = POST, produces = APPLICATION_JSON_VALUE)
-	@ResponseStatus(OK)
-	public Car createCar(@Valid @RequestBody Car car) {
-		return carService.createCar(car);
+	@ResponseStatus(ACCEPTED)
+	public void createCar(@Valid @RequestBody Car car) {
+		carService.createCar(car);
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(BAD_REQUEST)
 	@ResponseBody
 	public ErrorResponse invalidParameter() {
-		return new ErrorResponse(BAD_REQUEST.toString(), "Invalid parameter");
+		return new ErrorResponse(BAD_REQUEST.toString(), "Invalid parameter(s)");
 	}
 
 }
