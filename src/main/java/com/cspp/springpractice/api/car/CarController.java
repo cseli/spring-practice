@@ -29,18 +29,18 @@ import com.cspp.springpractice.api.response.ErrorResponse;
 public class CarController {
 
 	@Autowired
-	CarService carService;
+	CarService localCarService;
 
 	@RequestMapping(value = "/{carId}", method = GET, produces = APPLICATION_JSON_VALUE)
 	@ResponseStatus(OK)
 	public Car getCarById(@PathVariable long carId) {
-		return carService.getCarById(carId);
+		return localCarService.getCarById(carId);
 	}
 
 	@RequestMapping(value = "/create", method = POST, produces = APPLICATION_JSON_VALUE)
 	@ResponseStatus(ACCEPTED)
 	public void createCar(@Valid @RequestBody Car car) {
-		carService.createCar(car);
+		localCarService.createCar(car);
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)

@@ -29,13 +29,13 @@ public class CarControllerTest {
 	private MockMvc mockMvc;
 
 	@MockBean
-	CarService carService;
+	CarService localCarService;
 
 	@Test
 	public void shouldReturnRequestedCarById() throws Exception {
 		Car car = new Car(1234, "abc", "abc");
 
-		when(carService.getCarById(anyLong())).thenReturn(car);
+		when(localCarService.getCarById(anyLong())).thenReturn(car);
 
 		mockMvc.perform(get("/v1/car/1234"))
 				.andDo(print())
