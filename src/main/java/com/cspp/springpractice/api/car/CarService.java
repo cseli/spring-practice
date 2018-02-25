@@ -12,10 +12,10 @@ public class CarService {
 	CarManager carManager;
 
 	public Car getCarById(long carId) {
-		return carManager.getCarById(carId);
+		return carManager.findOne(carId);
 	}
 
 	public void createCar(Car car) {
-		carManager.createCar(car);
+		carManager.save(car);
 	}
 }

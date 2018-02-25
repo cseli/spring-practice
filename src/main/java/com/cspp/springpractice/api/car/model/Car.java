@@ -1,22 +1,27 @@
 package com.cspp.springpractice.api.car.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@Entity
 public class Car {
 
+	@Id
 	@NotNull
 	@Min(4)
 	private long id;
 	@NotNull
-	@Size(min=2, max=10)
+	@Size(min = 2, max = 10)
 	private String type;
 	@NotNull
-	@Size(min=2, max=20)
+	@Size(min = 2, max = 20)
 	private String brand;
 
-	public Car() {}
+	public Car() {
+	}
 
 	public Car(long licencePlate, String type, String brand) {
 		this.id = licencePlate;

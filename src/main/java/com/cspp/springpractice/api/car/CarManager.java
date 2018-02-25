@@ -1,17 +1,8 @@
 package com.cspp.springpractice.api.car;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.CrudRepository;
 
 import com.cspp.springpractice.api.car.model.Car;
 
-@Repository
-public class CarManager {
-
-	public Car getCarById(long carId) {
-		return new Car(carId, "combi", "BMW");
-	}
-
-	public void createCar(Car car) {
-		return;
-	}
+public interface CarManager extends CrudRepository<Car, Long> {
 }
