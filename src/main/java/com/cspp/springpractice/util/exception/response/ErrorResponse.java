@@ -1,4 +1,4 @@
-package com.cspp.springpractice.api.response;
+package com.cspp.springpractice.util.exception.response;
 
 public class ErrorResponse {
 	private String code;

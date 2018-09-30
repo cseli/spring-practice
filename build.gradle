@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '1.5.10.RELEASE'
+		springBootVersion = '2.0.5.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -16,26 +16,30 @@ apply plugin: 'org.springframework.boot'
 
 group = 'com.cspp'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+
+configurations {
+	providedRuntime
+}
 
 repositories {
 	mavenCentral()
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.10
+targetCompatibility = 1.10
 
 dependencies {
-	compile 'org.springframework.boot:spring-boot-starter'
-	compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	compile 'org.springframework.boot:spring-boot-devtools'
-	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: springBootVersion
 	compile 'org.springframework:spring-aspects:3.2.4.RELEASE'
 
-	compile 'org.hibernate:hibernate-validator'
 
-	compile 'mysql:mysql-connector-java'
+	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
+	compile group: 'com.h2database', name: 'h2', version: '1.0.60'
 
-	testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+	providedRuntime group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: springBootVersion
+
+	testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: springBootVersion
 	testCompile group: 'junit', name: 'junit', version: '4.12'
+	testCompile 'javax.xml.bind:jaxb-api:2.3.0'
 }
